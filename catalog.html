@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog</title>
+   
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   
+
+    <style>
+       @font-face {
+            font-family: 'Audiowide';
+            src: url('fonts/Audiowide-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            color: #ffffff;
+            font-family: 'Audiowide', sans-serif;
+            background-color: #252525;
+        }
+
+        .navbar {
+            background-color: #252525;
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #ffffff !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #7e7f66;
+        }
+
+        .second-line-container {
+            background-color: #7e7f66;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .center-menu {
+            display: flex;
+            justify-content: center; 
+            gap: 7px; 
+            list-style: none;
+            padding: 10;
+        }
+
+        .center-menu .nav-item a {
+            color: #ffffff !important;
+            transition: color 0.3s;
+            padding: 10px;
+            text-decoration: none; 
+        }
+
+        .center-menu .nav-item a:hover {
+            color: #7e7f66;
+        }
+
+        .collection-title {
+            text-align: center;
+            margin-top: 30px;
+            color: #ffffff;
+        }
+
+        .container-fluid.collection-container {
+            padding: 30px;
+        }
+        .content-container {
+            display: flex;
+        }
+
+        .collections-types,
+        .product-types,
+        .products {
+            background-color: #252525;
+            color: #ffffff;
+            padding: 20px;
+            margin-right: 20px;
+        }
+
+        .collections-types h3,
+        .product-types h3,
+        .products h3 {
+            margin-bottom: 10px;
+            text-align: center; 
+        }
+
+        .collections-types ul,
+        .product-types ul,
+        .products ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left; 
+        }
+
+        .collections-types ul li,
+        .product-types ul li,
+        .products ul li {
+            margin-bottom: 5px;
+            color: #ffffff; 
+        }
+
+        .collections-types ul li a,
+        .product-types ul li a,
+        .products ul li a {
+            color: #ffffff; 
+            text-decoration: none;
+        }
+
+        .collections-types ul li a:hover,
+        .product-types ul li a:hover,
+        .products ul li a:hover {
+            color: #7e7f66; 
+        }
+
+        .product-item {
+            background-color: #000000; 
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .product-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px; 
+        }
+
+        .product-link {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .product-link:hover {
+            color: #7e7f66;
+        }
+
+       
+    
+    .btn-primary {
+        background-color: #7e7f66; 
+        border-color: black; 
+    }
+
+    .btn-primary:hover {
+        background-color: black; 
+        border-color: black; 
+    }
+
+
+        
+       
+        .footer_main {
+            background-color: #7e7f66;
+            color: white;
+            padding: 50px 0;
+            text-align: center; 
+        }
+
+        .footer_block {
+            margin-bottom: 30px;
+            text-align: center; 
+        }
+
+        .footer_item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            text-align: center; 
+        }
+
+        .footer_item ul {
+            list-style-type: none;
+            padding-left: 0;
+            text-align: center; 
+        }
+
+        .footer_item ul li {
+            margin-bottom: 8px;
+            padding-left: 0; 
+        }
+
+        .footer_item ul li a {
+            color: white;
+            text-decoration: none;
+            display: block; 
+        }
+
+        .footer_item ul li a:hover {
+            text-decoration: underline;
+        }
+
+      
+        .footer_item__about,
+        .footer_item__links {
+            margin: 0 auto; 
+            max-width: 250px; 
+            text-align: left; 
+        }
+        .additional-footer {
+    background-color: #252525;
+    color: white;
+    padding: 15px 0;
+}
+
+.powered-by a {
+    color: white;
+}
+
+.powered-by a:hover {
+    text-decoration: underline;
+}
+.nav-btn {
+            display: none; 
+        }
+
+        .nav-icon {
+            font-size: 24px; 
+            color: #ffffff; 
+            cursor: pointer; 
+        }
+
+       
+        @media screen and (max-width: 768px) {
+            .center-menu {
+                display: none; 
+            }
+
+            .nav-btn {
+                display: block;
+                margin-left: -13px;
+            }
+
+            .nav-menu.active {
+                display: flex !important; 
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-menu.active .nav-item {
+                margin-bottom: 10px;
+            }
+        }
+        .product-item:hover img {
+    transform: scale(1.2); 
+    transition: transform 0.3s ease; 
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <span class="navbar-text mr-auto">ORDER ONLINE OR CALL US (1800) 000 8808</span>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html" target="_blank">Login</a>
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="currencyDropdown"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">USD</a>
+                        <div class="dropdown-menu" aria-labelledby="currencyDropdown">
+                            <a class="dropdown-item" href="#">USD</a>
+                            <a class="dropdown-item" href="#">EUR</a>
+                            <a class="dropdown-item" href="#">GBP</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid second-line-container">
+        <div class="row align-items-center">
+            <div class="col">
+                <img src="assets/logo.webp" alt="Logo" class="img-fluid">
+            </div>
+            <div class="col">
+                <ul class="nav center-menu ml-auto nav-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalog.html">Catalog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="collections.html">Collections</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sale.html">Sale</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">My Cart: 0 item(s)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-2">
+                <!-- Nav Btn Icon -->
+                <button class="nav-btn" onclick="toggleMenu()">
+                    <span class="nav-icon">&#9776;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid content-container">
+        <div class="collections-types">
+            <h3>COLLECTIONS</h3>
+            <ul>
+                <li><a href="#">Cheek Rests</a></li>
+                <li><a href="#">Choke Tubes</a></li>
+                <li><a href="#">Conversion kits</a></li>
+                <li><a href="#">Grips and recoil pads</a></li>
+                <li><a href="#">Rails</a></li>
+                <li><a href="#">Slings</a></li>
+                <li><a href="#">Stocks and Forends</a></li>
+                <li><a href="#">Swivels</a></li>
+            </ul>
+            
+            <h3>PRODUCT TYPES</h3>
+            <ul>
+                <li><a href="#">Ammo</a></li>
+                <li><a href="#">Brands</a></li>
+                <li><a href="#">Firearms</a></li>
+                <li><a href="#">Gun Accessories</a></li>
+                <li><a href="#">Tactical Gear</a></li>
+            </ul>
+            
+        </div>
+    
+        <div class="col products">
+            <h3>PRODUCTS</h3>
+            <div class="product-links">
+                <a href="#" class="product-link">All</a>
+                <a href="#" class="product-link">Choose A Firearm</a>
+                <a href="#" class="product-link">Clearance Firearms</a>
+                <a href="#" class="product-link">Gun Parts</a>
+                <a href="#" class="product-link">Optics And Mounts</a>
+                <a href="#" class="product-link">Scopes</a>
+                <a href="#" class="product-link">Tactical Gear</a>
+            </div>
+        
+            <div class="row">
+                <!-- Product 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="product-item">
+                        <img src="assets/gun1.avif" alt="Product 1" class="img-fluid">
+                        <h4>PRODUCT 1 Name</h4>
+                        <p>€320.46</p>
+                        <p>Unavailable</p>
+                    </div>
+                </div>
+        
+                <!-- Product 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="product-item">
+                        <img src="assets/g2.avif" alt="Product 2" class="img-fluid">
+                        <h4>Product 2 Name</h4>
+                        <p>€XXX.XX</p>
+                        <p>Availability</p>
+                    </div>
+                </div>
+        
+                <!-- Product 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="product-item">
+                        <img src="assets/g4.avif" alt="Product 3" class="img-fluid">
+                        <h4>Product 3 Name</h4>
+                        <p>€XXX.XX</p>
+                        <p>Availability</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <!-- Product 4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="product-item">
+                        <img src="assets/g6.avif" alt="Product 4" class="img-fluid">
+                        <h4>Product 4 Name</h4>
+                        <p>€XXX.XX</p>
+                        <p>Availability</p>
+                    </div>
+                </div>
+        
+                <!-- Product 5 -->
+                <div class="col-md-4 mb-4">
+                    <div class="product-item">
+                        <img src="assets/g5.avif" alt="Product 5" class="img-fluid">
+                        <h4>Product 5 Name</h4>
+                        <p>€XXX.XX</p>
+                        <p>Availability</p>
+                    </div>
+                </div>
+        
+                <!-- Product 6 -->
+                <div class="col-md-4 mb-4">
+                    <div class="product-item">
+                        <img src="assets/g3.avif" alt="Product 6" class="img-fluid">
+                        <h4>Product 6 Name</h4>
+                        <p>€XXX.XX</p>
+                        <p>Availability</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid footer_main" style="background-color: #7e7f66;">
+        <div class="row">
+            <div class="col-sm-3 footer_block footer_block__2_1">
+                <div class="footer_item footer_item__about text-white text-center">
+                    <h3>About our company</h3>
+                    <div class="about_text">
+                        <p>The theme is a great choice to launch your e-commerce project. It fits not only for the fashion business but also for electronics, cars, cosmetics, furniture, and other e-stores. The main Zemez Template will support and update to all new technical requirements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 footer_block text-white">
+                <div class="footer_item footer_item__links">
+                    <h3 class="text-center">Categories</h3>
+                    <ul>
+                        <li><a href="/collections/cheek-rests">Cheek Rests</a></li>
+                        <li><a href="/collections/choke-tubes">Choke Tubes</a></li>
+                        <li><a href="/collections/conversion-kits">Conversion kits</a></li>
+                        <li><a href="/collections/grips-and-recoil-pads">Grips and recoil pads</a></li>
+                        <li><a href="/collections/rails">Rails</a></li>
+                        <li><a href="/collections/slings">Slings</a></li>
+                        <li><a href="/collections/stocks-and-forends">Stocks and Forends</a></li>
+                        <li><a href="/collections/swivels">Swivels</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-3 footer_block footer_block__2_1 text-white">
+                <div class="footer_item footer_item__links">
+                    <h3 class="text-center">Information</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/collections">Catalog</a></li>
+                        <li><a href="/blogs/blog">Blog</a></li>
+                        <li><a href="/pages/about-us">About Us</a></li>
+                        <li><a href="/pages/contact-us">Contact Us</a></li>
+                        <li><a href="/pages/delivery-information">Delivery Information</a></li>
+                        <li><a href="/pages/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="/search">Pages</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-3 footer_block text-white">
+                <div class="footer_item footer_item__links">
+                    <h3 class="text-center">My Account</h3>
+                    <ul>
+                        <li><a href="/search">Search</a></li>
+                        <li><a href="/account">My Account</a></li>
+                        <li><a href="/account/login">Log in</a></li>
+                        <li><a href="/account/addresses">My Addresses</a></li>
+                        <li><a href="/pages/wishlist">Wishlist</a></li>
+                        <li><a href="/pages/password-page">Password page</a></li>
+                        <li><a href="/account/orders">My Orders</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid footer_main additional-footer">
+        <div class="row align-items-center">
+            <div class="col-sm-12 text-center">
+                <p class="powered-by">©Gunnger. <a href="https://www.shopify.com" target="_blank">Powered by Shopify</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+</html>
+
